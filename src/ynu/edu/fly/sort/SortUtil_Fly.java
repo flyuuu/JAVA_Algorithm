@@ -10,6 +10,7 @@ public class SortUtil_Fly {
 
     public static final int BUBBLESORT = 0; //冒泡排序
     public static final int SELECTSORT = 1; //直接选择排序
+    public static final int REVERSESORT = 2; //逆序功能
 
     //设置排序编码
 
@@ -17,6 +18,7 @@ public class SortUtil_Fly {
         switch (sortcode){
             case BUBBLESORT: return bubbleSort(arr,cp);
             case SELECTSORT: return selectSort(arr,cp);
+            case REVERSESORT: return reverseSort(arr);
         }
 
 
@@ -46,6 +48,24 @@ public class SortUtil_Fly {
                     arr[i] = temp;
                 }
             }
+        }
+
+        return arr;
+    }
+
+    /**
+     * 主要实现对数组中的元素反转，即：最后一个与第一个交换.倒数第二个与第二个交换
+     * @param arr
+     * @param <T>
+     * @return
+     */
+
+    private static <T>T[] reverseSort(T[] arr){
+
+        for(int i=0,j=arr.length-1; i<j; i++,j--){
+            T temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
         }
 
         return arr;
